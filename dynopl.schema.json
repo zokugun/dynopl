@@ -1,0 +1,2650 @@
+{
+  "$ref": "#/definitions/Playlist",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Field": {
+      "enum": [
+        "comment",
+        "discNumber",
+        "discSubtitle",
+        "discTotal",
+        "genre",
+        "language",
+        "subtitle",
+        "title",
+        "trackNumber",
+        "trackTotal",
+        "year",
+        "artist",
+        "artistCountry",
+        "composer",
+        "conductor",
+        "director",
+        "remixer",
+        "writer",
+        "album",
+        "albumArtist",
+        "albumComment",
+        "albumType",
+        "compilation",
+        "contentGroup",
+        "country",
+        "barcode",
+        "catalogNumber",
+        "isrc",
+        "label",
+        "publisher",
+        "hasCoverArt",
+        "lyrics",
+        "movement",
+        "movementNumber",
+        "movementTotal",
+        "script",
+        "work",
+        "bitrate",
+        "bpm",
+        "channels",
+        "duration",
+        "filePath",
+        "fileType",
+        "size",
+        "sortAlbum",
+        "sortAlbumArtist",
+        "sortArtist",
+        "sortComposer",
+        "sortTitle",
+        "dateAdded",
+        "dateLoved",
+        "dateModified",
+        "lastPlayed",
+        "loved",
+        "playCount",
+        "rating",
+        "tags"
+      ],
+      "type": "string"
+    },
+    "Playlist": {
+      "additionalProperties": false,
+      "properties": {
+        "all": {
+          "items": {
+            "$ref": "#/definitions/Rule"
+          },
+          "type": "array"
+        },
+        "any": {
+          "items": {
+            "$ref": "#/definitions/Rule"
+          },
+          "type": "array"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "$ref": "#/definitions/UUID"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "number"
+        },
+        "order": {
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "type": "string"
+        },
+        "sort": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/Field"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "#/definitions/Field"
+            },
+            {
+              "const": "random",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object"
+    },
+    "Rule": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "all": {
+              "items": {
+                "$ref": "#/definitions/Rule"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "all"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "any": {
+              "items": {
+                "$ref": "#/definitions/Rule"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "any"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "is": {
+              "additionalProperties": false,
+              "properties": {
+                "album": {
+                  "type": "string"
+                },
+                "albumArtist": {
+                  "type": "string"
+                },
+                "albumComment": {
+                  "type": "string"
+                },
+                "albumType": {
+                  "type": "string"
+                },
+                "artist": {
+                  "type": "string"
+                },
+                "artistCountry": {
+                  "type": "string"
+                },
+                "barcode": {
+                  "type": "string"
+                },
+                "bitrate": {
+                  "type": "number"
+                },
+                "bpm": {
+                  "type": "number"
+                },
+                "catalogNumber": {
+                  "type": "string"
+                },
+                "channels": {
+                  "type": "number"
+                },
+                "comment": {
+                  "type": "string"
+                },
+                "compilation": {
+                  "type": "boolean"
+                },
+                "composer": {
+                  "type": "string"
+                },
+                "conductor": {
+                  "type": "string"
+                },
+                "contentGroup": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "dateAdded": {
+                  "type": "string"
+                },
+                "dateLoved": {
+                  "type": "string"
+                },
+                "dateModified": {
+                  "type": "string"
+                },
+                "director": {
+                  "type": "string"
+                },
+                "discNumber": {
+                  "type": "number"
+                },
+                "discSubtitle": {
+                  "type": "string"
+                },
+                "discTotal": {
+                  "type": "number"
+                },
+                "duration": {
+                  "type": "number"
+                },
+                "filePath": {
+                  "type": "string"
+                },
+                "fileType": {
+                  "type": "string"
+                },
+                "genre": {
+                  "type": "string"
+                },
+                "hasCoverArt": {
+                  "type": "boolean"
+                },
+                "isrc": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "lastPlayed": {
+                  "type": "string"
+                },
+                "loved": {
+                  "type": "boolean"
+                },
+                "lyrics": {
+                  "type": "string"
+                },
+                "movement": {
+                  "type": "string"
+                },
+                "movementNumber": {
+                  "type": "number"
+                },
+                "movementTotal": {
+                  "type": "number"
+                },
+                "playCount": {
+                  "type": "number"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "rating": {
+                  "type": "number"
+                },
+                "remixer": {
+                  "type": "string"
+                },
+                "script": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "sortAlbum": {
+                  "type": "string"
+                },
+                "sortAlbumArtist": {
+                  "type": "string"
+                },
+                "sortArtist": {
+                  "type": "string"
+                },
+                "sortComposer": {
+                  "type": "string"
+                },
+                "sortTitle": {
+                  "type": "string"
+                },
+                "subtitle": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "trackNumber": {
+                  "type": "number"
+                },
+                "trackTotal": {
+                  "type": "number"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "work": {
+                  "type": "string"
+                },
+                "writer": {
+                  "type": "string"
+                },
+                "year": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "album",
+                "albumArtist",
+                "albumComment",
+                "albumType",
+                "artist",
+                "artistCountry",
+                "barcode",
+                "bitrate",
+                "bpm",
+                "catalogNumber",
+                "channels",
+                "comment",
+                "compilation",
+                "composer",
+                "conductor",
+                "contentGroup",
+                "country",
+                "dateAdded",
+                "dateLoved",
+                "dateModified",
+                "director",
+                "discNumber",
+                "discSubtitle",
+                "discTotal",
+                "duration",
+                "filePath",
+                "fileType",
+                "genre",
+                "hasCoverArt",
+                "isrc",
+                "label",
+                "language",
+                "lastPlayed",
+                "loved",
+                "lyrics",
+                "movement",
+                "movementNumber",
+                "movementTotal",
+                "playCount",
+                "publisher",
+                "rating",
+                "remixer",
+                "script",
+                "size",
+                "sortAlbum",
+                "sortAlbumArtist",
+                "sortArtist",
+                "sortComposer",
+                "sortTitle",
+                "subtitle",
+                "tags",
+                "title",
+                "trackNumber",
+                "trackTotal",
+                "work",
+                "writer",
+                "year"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "is"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "isNot": {
+              "additionalProperties": false,
+              "properties": {
+                "album": {
+                  "type": "string"
+                },
+                "albumArtist": {
+                  "type": "string"
+                },
+                "albumComment": {
+                  "type": "string"
+                },
+                "albumType": {
+                  "type": "string"
+                },
+                "artist": {
+                  "type": "string"
+                },
+                "artistCountry": {
+                  "type": "string"
+                },
+                "barcode": {
+                  "type": "string"
+                },
+                "bitrate": {
+                  "type": "number"
+                },
+                "bpm": {
+                  "type": "number"
+                },
+                "catalogNumber": {
+                  "type": "string"
+                },
+                "channels": {
+                  "type": "number"
+                },
+                "comment": {
+                  "type": "string"
+                },
+                "compilation": {
+                  "type": "boolean"
+                },
+                "composer": {
+                  "type": "string"
+                },
+                "conductor": {
+                  "type": "string"
+                },
+                "contentGroup": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "dateAdded": {
+                  "type": "string"
+                },
+                "dateLoved": {
+                  "type": "string"
+                },
+                "dateModified": {
+                  "type": "string"
+                },
+                "director": {
+                  "type": "string"
+                },
+                "discNumber": {
+                  "type": "number"
+                },
+                "discSubtitle": {
+                  "type": "string"
+                },
+                "discTotal": {
+                  "type": "number"
+                },
+                "duration": {
+                  "type": "number"
+                },
+                "filePath": {
+                  "type": "string"
+                },
+                "fileType": {
+                  "type": "string"
+                },
+                "genre": {
+                  "type": "string"
+                },
+                "hasCoverArt": {
+                  "type": "boolean"
+                },
+                "isrc": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "lastPlayed": {
+                  "type": "string"
+                },
+                "loved": {
+                  "type": "boolean"
+                },
+                "lyrics": {
+                  "type": "string"
+                },
+                "movement": {
+                  "type": "string"
+                },
+                "movementNumber": {
+                  "type": "number"
+                },
+                "movementTotal": {
+                  "type": "number"
+                },
+                "playCount": {
+                  "type": "number"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "rating": {
+                  "type": "number"
+                },
+                "remixer": {
+                  "type": "string"
+                },
+                "script": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "sortAlbum": {
+                  "type": "string"
+                },
+                "sortAlbumArtist": {
+                  "type": "string"
+                },
+                "sortArtist": {
+                  "type": "string"
+                },
+                "sortComposer": {
+                  "type": "string"
+                },
+                "sortTitle": {
+                  "type": "string"
+                },
+                "subtitle": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "trackNumber": {
+                  "type": "number"
+                },
+                "trackTotal": {
+                  "type": "number"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "work": {
+                  "type": "string"
+                },
+                "writer": {
+                  "type": "string"
+                },
+                "year": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "album",
+                "albumArtist",
+                "albumComment",
+                "albumType",
+                "artist",
+                "artistCountry",
+                "barcode",
+                "bitrate",
+                "bpm",
+                "catalogNumber",
+                "channels",
+                "comment",
+                "compilation",
+                "composer",
+                "conductor",
+                "contentGroup",
+                "country",
+                "dateAdded",
+                "dateLoved",
+                "dateModified",
+                "director",
+                "discNumber",
+                "discSubtitle",
+                "discTotal",
+                "duration",
+                "filePath",
+                "fileType",
+                "genre",
+                "hasCoverArt",
+                "isrc",
+                "label",
+                "language",
+                "lastPlayed",
+                "loved",
+                "lyrics",
+                "movement",
+                "movementNumber",
+                "movementTotal",
+                "playCount",
+                "publisher",
+                "rating",
+                "remixer",
+                "script",
+                "size",
+                "sortAlbum",
+                "sortAlbumArtist",
+                "sortArtist",
+                "sortComposer",
+                "sortTitle",
+                "subtitle",
+                "tags",
+                "title",
+                "trackNumber",
+                "trackTotal",
+                "work",
+                "writer",
+                "year"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "isNot"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "gt": {
+              "additionalProperties": false,
+              "properties": {
+                "bitrate": {
+                  "type": "number"
+                },
+                "bpm": {
+                  "type": "number"
+                },
+                "channels": {
+                  "type": "number"
+                },
+                "discNumber": {
+                  "type": "number"
+                },
+                "discTotal": {
+                  "type": "number"
+                },
+                "duration": {
+                  "type": "number"
+                },
+                "movementNumber": {
+                  "type": "number"
+                },
+                "movementTotal": {
+                  "type": "number"
+                },
+                "playCount": {
+                  "type": "number"
+                },
+                "rating": {
+                  "type": "number"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "trackNumber": {
+                  "type": "number"
+                },
+                "trackTotal": {
+                  "type": "number"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "year": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "bitrate",
+                "bpm",
+                "channels",
+                "discNumber",
+                "discTotal",
+                "duration",
+                "movementNumber",
+                "movementTotal",
+                "playCount",
+                "rating",
+                "size",
+                "trackNumber",
+                "trackTotal",
+                "year"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "gt"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "lt": {
+              "additionalProperties": false,
+              "properties": {
+                "bitrate": {
+                  "type": "number"
+                },
+                "bpm": {
+                  "type": "number"
+                },
+                "channels": {
+                  "type": "number"
+                },
+                "discNumber": {
+                  "type": "number"
+                },
+                "discTotal": {
+                  "type": "number"
+                },
+                "duration": {
+                  "type": "number"
+                },
+                "movementNumber": {
+                  "type": "number"
+                },
+                "movementTotal": {
+                  "type": "number"
+                },
+                "playCount": {
+                  "type": "number"
+                },
+                "rating": {
+                  "type": "number"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "trackNumber": {
+                  "type": "number"
+                },
+                "trackTotal": {
+                  "type": "number"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "year": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "bitrate",
+                "bpm",
+                "channels",
+                "discNumber",
+                "discTotal",
+                "duration",
+                "movementNumber",
+                "movementTotal",
+                "playCount",
+                "rating",
+                "size",
+                "trackNumber",
+                "trackTotal",
+                "year"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "lt"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "gte": {
+              "additionalProperties": false,
+              "properties": {
+                "bitrate": {
+                  "type": "number"
+                },
+                "bpm": {
+                  "type": "number"
+                },
+                "channels": {
+                  "type": "number"
+                },
+                "discNumber": {
+                  "type": "number"
+                },
+                "discTotal": {
+                  "type": "number"
+                },
+                "duration": {
+                  "type": "number"
+                },
+                "movementNumber": {
+                  "type": "number"
+                },
+                "movementTotal": {
+                  "type": "number"
+                },
+                "playCount": {
+                  "type": "number"
+                },
+                "rating": {
+                  "type": "number"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "trackNumber": {
+                  "type": "number"
+                },
+                "trackTotal": {
+                  "type": "number"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "year": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "bitrate",
+                "bpm",
+                "channels",
+                "discNumber",
+                "discTotal",
+                "duration",
+                "movementNumber",
+                "movementTotal",
+                "playCount",
+                "rating",
+                "size",
+                "trackNumber",
+                "trackTotal",
+                "year"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "gte"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "lte": {
+              "additionalProperties": false,
+              "properties": {
+                "bitrate": {
+                  "type": "number"
+                },
+                "bpm": {
+                  "type": "number"
+                },
+                "channels": {
+                  "type": "number"
+                },
+                "discNumber": {
+                  "type": "number"
+                },
+                "discTotal": {
+                  "type": "number"
+                },
+                "duration": {
+                  "type": "number"
+                },
+                "movementNumber": {
+                  "type": "number"
+                },
+                "movementTotal": {
+                  "type": "number"
+                },
+                "playCount": {
+                  "type": "number"
+                },
+                "rating": {
+                  "type": "number"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "trackNumber": {
+                  "type": "number"
+                },
+                "trackTotal": {
+                  "type": "number"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "year": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "bitrate",
+                "bpm",
+                "channels",
+                "discNumber",
+                "discTotal",
+                "duration",
+                "movementNumber",
+                "movementTotal",
+                "playCount",
+                "rating",
+                "size",
+                "trackNumber",
+                "trackTotal",
+                "year"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "lte"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "contains": {
+              "additionalProperties": false,
+              "properties": {
+                "album": {
+                  "type": "string"
+                },
+                "albumArtist": {
+                  "type": "string"
+                },
+                "albumComment": {
+                  "type": "string"
+                },
+                "albumType": {
+                  "type": "string"
+                },
+                "artist": {
+                  "type": "string"
+                },
+                "artistCountry": {
+                  "type": "string"
+                },
+                "barcode": {
+                  "type": "string"
+                },
+                "catalogNumber": {
+                  "type": "string"
+                },
+                "comment": {
+                  "type": "string"
+                },
+                "composer": {
+                  "type": "string"
+                },
+                "conductor": {
+                  "type": "string"
+                },
+                "contentGroup": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "dateAdded": {
+                  "type": "string"
+                },
+                "dateLoved": {
+                  "type": "string"
+                },
+                "dateModified": {
+                  "type": "string"
+                },
+                "director": {
+                  "type": "string"
+                },
+                "discSubtitle": {
+                  "type": "string"
+                },
+                "filePath": {
+                  "type": "string"
+                },
+                "fileType": {
+                  "type": "string"
+                },
+                "genre": {
+                  "type": "string"
+                },
+                "isrc": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "lastPlayed": {
+                  "type": "string"
+                },
+                "lyrics": {
+                  "type": "string"
+                },
+                "movement": {
+                  "type": "string"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "remixer": {
+                  "type": "string"
+                },
+                "script": {
+                  "type": "string"
+                },
+                "sortAlbum": {
+                  "type": "string"
+                },
+                "sortAlbumArtist": {
+                  "type": "string"
+                },
+                "sortArtist": {
+                  "type": "string"
+                },
+                "sortComposer": {
+                  "type": "string"
+                },
+                "sortTitle": {
+                  "type": "string"
+                },
+                "subtitle": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "work": {
+                  "type": "string"
+                },
+                "writer": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "album",
+                "albumArtist",
+                "albumComment",
+                "albumType",
+                "artist",
+                "artistCountry",
+                "barcode",
+                "catalogNumber",
+                "comment",
+                "composer",
+                "conductor",
+                "contentGroup",
+                "country",
+                "dateAdded",
+                "dateLoved",
+                "dateModified",
+                "director",
+                "discSubtitle",
+                "filePath",
+                "fileType",
+                "genre",
+                "isrc",
+                "label",
+                "language",
+                "lastPlayed",
+                "lyrics",
+                "movement",
+                "publisher",
+                "remixer",
+                "script",
+                "sortAlbum",
+                "sortAlbumArtist",
+                "sortArtist",
+                "sortComposer",
+                "sortTitle",
+                "subtitle",
+                "tags",
+                "title",
+                "work",
+                "writer"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "contains"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "notContains": {
+              "additionalProperties": false,
+              "properties": {
+                "album": {
+                  "type": "string"
+                },
+                "albumArtist": {
+                  "type": "string"
+                },
+                "albumComment": {
+                  "type": "string"
+                },
+                "albumType": {
+                  "type": "string"
+                },
+                "artist": {
+                  "type": "string"
+                },
+                "artistCountry": {
+                  "type": "string"
+                },
+                "barcode": {
+                  "type": "string"
+                },
+                "catalogNumber": {
+                  "type": "string"
+                },
+                "comment": {
+                  "type": "string"
+                },
+                "composer": {
+                  "type": "string"
+                },
+                "conductor": {
+                  "type": "string"
+                },
+                "contentGroup": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "dateAdded": {
+                  "type": "string"
+                },
+                "dateLoved": {
+                  "type": "string"
+                },
+                "dateModified": {
+                  "type": "string"
+                },
+                "director": {
+                  "type": "string"
+                },
+                "discSubtitle": {
+                  "type": "string"
+                },
+                "filePath": {
+                  "type": "string"
+                },
+                "fileType": {
+                  "type": "string"
+                },
+                "genre": {
+                  "type": "string"
+                },
+                "isrc": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "lastPlayed": {
+                  "type": "string"
+                },
+                "lyrics": {
+                  "type": "string"
+                },
+                "movement": {
+                  "type": "string"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "remixer": {
+                  "type": "string"
+                },
+                "script": {
+                  "type": "string"
+                },
+                "sortAlbum": {
+                  "type": "string"
+                },
+                "sortAlbumArtist": {
+                  "type": "string"
+                },
+                "sortArtist": {
+                  "type": "string"
+                },
+                "sortComposer": {
+                  "type": "string"
+                },
+                "sortTitle": {
+                  "type": "string"
+                },
+                "subtitle": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "work": {
+                  "type": "string"
+                },
+                "writer": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "album",
+                "albumArtist",
+                "albumComment",
+                "albumType",
+                "artist",
+                "artistCountry",
+                "barcode",
+                "catalogNumber",
+                "comment",
+                "composer",
+                "conductor",
+                "contentGroup",
+                "country",
+                "dateAdded",
+                "dateLoved",
+                "dateModified",
+                "director",
+                "discSubtitle",
+                "filePath",
+                "fileType",
+                "genre",
+                "isrc",
+                "label",
+                "language",
+                "lastPlayed",
+                "lyrics",
+                "movement",
+                "publisher",
+                "remixer",
+                "script",
+                "sortAlbum",
+                "sortAlbumArtist",
+                "sortArtist",
+                "sortComposer",
+                "sortTitle",
+                "subtitle",
+                "tags",
+                "title",
+                "work",
+                "writer"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "notContains"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "startsWith": {
+              "additionalProperties": false,
+              "properties": {
+                "album": {
+                  "type": "string"
+                },
+                "albumArtist": {
+                  "type": "string"
+                },
+                "albumComment": {
+                  "type": "string"
+                },
+                "albumType": {
+                  "type": "string"
+                },
+                "artist": {
+                  "type": "string"
+                },
+                "artistCountry": {
+                  "type": "string"
+                },
+                "barcode": {
+                  "type": "string"
+                },
+                "catalogNumber": {
+                  "type": "string"
+                },
+                "comment": {
+                  "type": "string"
+                },
+                "composer": {
+                  "type": "string"
+                },
+                "conductor": {
+                  "type": "string"
+                },
+                "contentGroup": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "dateAdded": {
+                  "type": "string"
+                },
+                "dateLoved": {
+                  "type": "string"
+                },
+                "dateModified": {
+                  "type": "string"
+                },
+                "director": {
+                  "type": "string"
+                },
+                "discSubtitle": {
+                  "type": "string"
+                },
+                "filePath": {
+                  "type": "string"
+                },
+                "fileType": {
+                  "type": "string"
+                },
+                "genre": {
+                  "type": "string"
+                },
+                "isrc": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "lastPlayed": {
+                  "type": "string"
+                },
+                "lyrics": {
+                  "type": "string"
+                },
+                "movement": {
+                  "type": "string"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "remixer": {
+                  "type": "string"
+                },
+                "script": {
+                  "type": "string"
+                },
+                "sortAlbum": {
+                  "type": "string"
+                },
+                "sortAlbumArtist": {
+                  "type": "string"
+                },
+                "sortArtist": {
+                  "type": "string"
+                },
+                "sortComposer": {
+                  "type": "string"
+                },
+                "sortTitle": {
+                  "type": "string"
+                },
+                "subtitle": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "work": {
+                  "type": "string"
+                },
+                "writer": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "album",
+                "albumArtist",
+                "albumComment",
+                "albumType",
+                "artist",
+                "artistCountry",
+                "barcode",
+                "catalogNumber",
+                "comment",
+                "composer",
+                "conductor",
+                "contentGroup",
+                "country",
+                "dateAdded",
+                "dateLoved",
+                "dateModified",
+                "director",
+                "discSubtitle",
+                "filePath",
+                "fileType",
+                "genre",
+                "isrc",
+                "label",
+                "language",
+                "lastPlayed",
+                "lyrics",
+                "movement",
+                "publisher",
+                "remixer",
+                "script",
+                "sortAlbum",
+                "sortAlbumArtist",
+                "sortArtist",
+                "sortComposer",
+                "sortTitle",
+                "subtitle",
+                "tags",
+                "title",
+                "work",
+                "writer"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "startsWith"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "endsWith": {
+              "additionalProperties": false,
+              "properties": {
+                "album": {
+                  "type": "string"
+                },
+                "albumArtist": {
+                  "type": "string"
+                },
+                "albumComment": {
+                  "type": "string"
+                },
+                "albumType": {
+                  "type": "string"
+                },
+                "artist": {
+                  "type": "string"
+                },
+                "artistCountry": {
+                  "type": "string"
+                },
+                "barcode": {
+                  "type": "string"
+                },
+                "catalogNumber": {
+                  "type": "string"
+                },
+                "comment": {
+                  "type": "string"
+                },
+                "composer": {
+                  "type": "string"
+                },
+                "conductor": {
+                  "type": "string"
+                },
+                "contentGroup": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "dateAdded": {
+                  "type": "string"
+                },
+                "dateLoved": {
+                  "type": "string"
+                },
+                "dateModified": {
+                  "type": "string"
+                },
+                "director": {
+                  "type": "string"
+                },
+                "discSubtitle": {
+                  "type": "string"
+                },
+                "filePath": {
+                  "type": "string"
+                },
+                "fileType": {
+                  "type": "string"
+                },
+                "genre": {
+                  "type": "string"
+                },
+                "isrc": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "lastPlayed": {
+                  "type": "string"
+                },
+                "lyrics": {
+                  "type": "string"
+                },
+                "movement": {
+                  "type": "string"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "remixer": {
+                  "type": "string"
+                },
+                "script": {
+                  "type": "string"
+                },
+                "sortAlbum": {
+                  "type": "string"
+                },
+                "sortAlbumArtist": {
+                  "type": "string"
+                },
+                "sortArtist": {
+                  "type": "string"
+                },
+                "sortComposer": {
+                  "type": "string"
+                },
+                "sortTitle": {
+                  "type": "string"
+                },
+                "subtitle": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "work": {
+                  "type": "string"
+                },
+                "writer": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "album",
+                "albumArtist",
+                "albumComment",
+                "albumType",
+                "artist",
+                "artistCountry",
+                "barcode",
+                "catalogNumber",
+                "comment",
+                "composer",
+                "conductor",
+                "contentGroup",
+                "country",
+                "dateAdded",
+                "dateLoved",
+                "dateModified",
+                "director",
+                "discSubtitle",
+                "filePath",
+                "fileType",
+                "genre",
+                "isrc",
+                "label",
+                "language",
+                "lastPlayed",
+                "lyrics",
+                "movement",
+                "publisher",
+                "remixer",
+                "script",
+                "sortAlbum",
+                "sortAlbumArtist",
+                "sortArtist",
+                "sortComposer",
+                "sortTitle",
+                "subtitle",
+                "tags",
+                "title",
+                "work",
+                "writer"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "endsWith"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "inTheRange": {
+              "additionalProperties": false,
+              "properties": {
+                "album": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "albumArtist": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "albumComment": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "albumType": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "artist": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "artistCountry": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "barcode": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "bitrate": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "bpm": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "catalogNumber": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "channels": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "comment": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "compilation": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "composer": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "conductor": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "contentGroup": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "country": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "dateAdded": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "dateLoved": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "dateModified": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "director": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "discNumber": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "discSubtitle": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "discTotal": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "duration": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "filePath": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "fileType": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "genre": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "hasCoverArt": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "isrc": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "label": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "language": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "lastPlayed": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "loved": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "lyrics": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "movement": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "movementNumber": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "movementTotal": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "playCount": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "publisher": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "rating": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "remixer": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "script": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "size": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "sortAlbum": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "sortAlbumArtist": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "sortArtist": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "sortComposer": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "sortTitle": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "subtitle": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "tags": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "title": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "trackNumber": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "trackTotal": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "work": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "writer": {
+                  "maxItems": 0,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "year": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                }
+              },
+              "required": [
+                "album",
+                "albumArtist",
+                "albumComment",
+                "albumType",
+                "artist",
+                "artistCountry",
+                "barcode",
+                "bitrate",
+                "bpm",
+                "catalogNumber",
+                "channels",
+                "comment",
+                "compilation",
+                "composer",
+                "conductor",
+                "contentGroup",
+                "country",
+                "dateAdded",
+                "dateLoved",
+                "dateModified",
+                "director",
+                "discNumber",
+                "discSubtitle",
+                "discTotal",
+                "duration",
+                "filePath",
+                "fileType",
+                "genre",
+                "hasCoverArt",
+                "isrc",
+                "label",
+                "language",
+                "lastPlayed",
+                "loved",
+                "lyrics",
+                "movement",
+                "movementNumber",
+                "movementTotal",
+                "playCount",
+                "publisher",
+                "rating",
+                "remixer",
+                "script",
+                "size",
+                "sortAlbum",
+                "sortAlbumArtist",
+                "sortArtist",
+                "sortComposer",
+                "sortTitle",
+                "subtitle",
+                "tags",
+                "title",
+                "trackNumber",
+                "trackTotal",
+                "work",
+                "writer",
+                "year"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "inTheRange"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "before": {
+              "additionalProperties": false,
+              "properties": {
+                "album": {
+                  "type": "string"
+                },
+                "albumArtist": {
+                  "type": "string"
+                },
+                "albumComment": {
+                  "type": "string"
+                },
+                "albumType": {
+                  "type": "string"
+                },
+                "artist": {
+                  "type": "string"
+                },
+                "artistCountry": {
+                  "type": "string"
+                },
+                "barcode": {
+                  "type": "string"
+                },
+                "catalogNumber": {
+                  "type": "string"
+                },
+                "comment": {
+                  "type": "string"
+                },
+                "composer": {
+                  "type": "string"
+                },
+                "conductor": {
+                  "type": "string"
+                },
+                "contentGroup": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "dateAdded": {
+                  "type": "string"
+                },
+                "dateLoved": {
+                  "type": "string"
+                },
+                "dateModified": {
+                  "type": "string"
+                },
+                "director": {
+                  "type": "string"
+                },
+                "discSubtitle": {
+                  "type": "string"
+                },
+                "filePath": {
+                  "type": "string"
+                },
+                "fileType": {
+                  "type": "string"
+                },
+                "genre": {
+                  "type": "string"
+                },
+                "isrc": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "lastPlayed": {
+                  "type": "string"
+                },
+                "lyrics": {
+                  "type": "string"
+                },
+                "movement": {
+                  "type": "string"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "remixer": {
+                  "type": "string"
+                },
+                "script": {
+                  "type": "string"
+                },
+                "sortAlbum": {
+                  "type": "string"
+                },
+                "sortAlbumArtist": {
+                  "type": "string"
+                },
+                "sortArtist": {
+                  "type": "string"
+                },
+                "sortComposer": {
+                  "type": "string"
+                },
+                "sortTitle": {
+                  "type": "string"
+                },
+                "subtitle": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "work": {
+                  "type": "string"
+                },
+                "writer": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "album",
+                "albumArtist",
+                "albumComment",
+                "albumType",
+                "artist",
+                "artistCountry",
+                "barcode",
+                "catalogNumber",
+                "comment",
+                "composer",
+                "conductor",
+                "contentGroup",
+                "country",
+                "dateAdded",
+                "dateLoved",
+                "dateModified",
+                "director",
+                "discSubtitle",
+                "filePath",
+                "fileType",
+                "genre",
+                "isrc",
+                "label",
+                "language",
+                "lastPlayed",
+                "lyrics",
+                "movement",
+                "publisher",
+                "remixer",
+                "script",
+                "sortAlbum",
+                "sortAlbumArtist",
+                "sortArtist",
+                "sortComposer",
+                "sortTitle",
+                "subtitle",
+                "tags",
+                "title",
+                "work",
+                "writer"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "before"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "after": {
+              "additionalProperties": false,
+              "properties": {
+                "album": {
+                  "type": "string"
+                },
+                "albumArtist": {
+                  "type": "string"
+                },
+                "albumComment": {
+                  "type": "string"
+                },
+                "albumType": {
+                  "type": "string"
+                },
+                "artist": {
+                  "type": "string"
+                },
+                "artistCountry": {
+                  "type": "string"
+                },
+                "barcode": {
+                  "type": "string"
+                },
+                "catalogNumber": {
+                  "type": "string"
+                },
+                "comment": {
+                  "type": "string"
+                },
+                "composer": {
+                  "type": "string"
+                },
+                "conductor": {
+                  "type": "string"
+                },
+                "contentGroup": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "dateAdded": {
+                  "type": "string"
+                },
+                "dateLoved": {
+                  "type": "string"
+                },
+                "dateModified": {
+                  "type": "string"
+                },
+                "director": {
+                  "type": "string"
+                },
+                "discSubtitle": {
+                  "type": "string"
+                },
+                "filePath": {
+                  "type": "string"
+                },
+                "fileType": {
+                  "type": "string"
+                },
+                "genre": {
+                  "type": "string"
+                },
+                "isrc": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "lastPlayed": {
+                  "type": "string"
+                },
+                "lyrics": {
+                  "type": "string"
+                },
+                "movement": {
+                  "type": "string"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "remixer": {
+                  "type": "string"
+                },
+                "script": {
+                  "type": "string"
+                },
+                "sortAlbum": {
+                  "type": "string"
+                },
+                "sortAlbumArtist": {
+                  "type": "string"
+                },
+                "sortArtist": {
+                  "type": "string"
+                },
+                "sortComposer": {
+                  "type": "string"
+                },
+                "sortTitle": {
+                  "type": "string"
+                },
+                "subtitle": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "work": {
+                  "type": "string"
+                },
+                "writer": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "album",
+                "albumArtist",
+                "albumComment",
+                "albumType",
+                "artist",
+                "artistCountry",
+                "barcode",
+                "catalogNumber",
+                "comment",
+                "composer",
+                "conductor",
+                "contentGroup",
+                "country",
+                "dateAdded",
+                "dateLoved",
+                "dateModified",
+                "director",
+                "discSubtitle",
+                "filePath",
+                "fileType",
+                "genre",
+                "isrc",
+                "label",
+                "language",
+                "lastPlayed",
+                "lyrics",
+                "movement",
+                "publisher",
+                "remixer",
+                "script",
+                "sortAlbum",
+                "sortAlbumArtist",
+                "sortArtist",
+                "sortComposer",
+                "sortTitle",
+                "subtitle",
+                "tags",
+                "title",
+                "work",
+                "writer"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "after"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "inTheLast": {
+              "additionalProperties": false,
+              "properties": {
+                "bitrate": {
+                  "type": "number"
+                },
+                "bpm": {
+                  "type": "number"
+                },
+                "channels": {
+                  "type": "number"
+                },
+                "discNumber": {
+                  "type": "number"
+                },
+                "discTotal": {
+                  "type": "number"
+                },
+                "duration": {
+                  "type": "number"
+                },
+                "movementNumber": {
+                  "type": "number"
+                },
+                "movementTotal": {
+                  "type": "number"
+                },
+                "playCount": {
+                  "type": "number"
+                },
+                "rating": {
+                  "type": "number"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "trackNumber": {
+                  "type": "number"
+                },
+                "trackTotal": {
+                  "type": "number"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "year": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "bitrate",
+                "bpm",
+                "channels",
+                "discNumber",
+                "discTotal",
+                "duration",
+                "movementNumber",
+                "movementTotal",
+                "playCount",
+                "rating",
+                "size",
+                "trackNumber",
+                "trackTotal",
+                "year"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "inTheLast"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "notInTheLast": {
+              "additionalProperties": false,
+              "properties": {
+                "bitrate": {
+                  "type": "number"
+                },
+                "bpm": {
+                  "type": "number"
+                },
+                "channels": {
+                  "type": "number"
+                },
+                "discNumber": {
+                  "type": "number"
+                },
+                "discTotal": {
+                  "type": "number"
+                },
+                "duration": {
+                  "type": "number"
+                },
+                "movementNumber": {
+                  "type": "number"
+                },
+                "movementTotal": {
+                  "type": "number"
+                },
+                "playCount": {
+                  "type": "number"
+                },
+                "rating": {
+                  "type": "number"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "trackNumber": {
+                  "type": "number"
+                },
+                "trackTotal": {
+                  "type": "number"
+                },
+                "weight": {
+                  "type": "number"
+                },
+                "year": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "bitrate",
+                "bpm",
+                "channels",
+                "discNumber",
+                "discTotal",
+                "duration",
+                "movementNumber",
+                "movementTotal",
+                "playCount",
+                "rating",
+                "size",
+                "trackNumber",
+                "trackTotal",
+                "year"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "notInTheLast"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "inPlaylist": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "$ref": "#/definitions/UUID"
+                },
+                "weight": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "inPlaylist"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "notInPlaylist": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "$ref": "#/definitions/UUID"
+                },
+                "weight": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "notInPlaylist"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "UUID": {
+      "description": "UUID format: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx where x is any hexadecimal digit.",
+      "type": "string"
+    }
+  }
+}

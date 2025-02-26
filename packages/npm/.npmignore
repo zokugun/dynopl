@@ -1,0 +1,8 @@
+*
+*/**
+**/.DS_Store
+!package.json
+!LICENSE
+!README.md
+!lib/**/*.js
+!lib/**/*.d.ts

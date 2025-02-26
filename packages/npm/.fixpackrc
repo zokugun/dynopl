@@ -1,0 +1,25 @@
+{
+	"sortToTop": [
+		"name",
+		"displayName",
+		"description",
+		"version",
+		"private",
+		"author",
+		"publisher",
+		"license",
+		"homepage",
+		"repository",
+		"bugs",
+		"engines",
+		"bin",
+		"main",
+		"types",
+		"scripts",
+		"dependencies",
+		"devDependencies",
+		"optionalDependencies",
+		"keywords"
+	],
+	"finalNewLine": true
+}

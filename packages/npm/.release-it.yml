@@ -1,0 +1,7 @@
+git:
+  commitMessage: npm-v${version}
+  tagName: npm-v${version}
+  tagAnnotation: Release version ${version}
+npm:
+  publish: false
+disable-metrics: true

@@ -1,0 +1,44 @@
+{
+	"name": "@zokugun/dynopl",
+	"description": "Open format for dynamic/smart playlists of songs",
+	"version": "0.0.0",
+	"author": {
+		"name": "Baptiste Augrain",
+		"email": "daiyam@zokugun.org"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/zokugun/dynopl",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/zokugun/dynopl.git"
+	},
+	"bugs": {
+		"url": "https://github.com/zokugun/dynopl/issues"
+	},
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"scripts": {
+		"commit": "cz",
+		"compile": "tsc -p src",
+		"lint": "xo",
+		"prepare": "husky; fixpack || true",
+		"prepublishOnly": "npm run compile",
+		"release": "release-it",
+		"schema:build": "npx ts-json-schema-generator --path 'src/index.ts' --type 'Playlist' --out lib/dynopl.schema.json; cp lib/dynopl.schema.json ../../dynopl.schema.json",
+		"watch": "tsc -watch -p src"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@commitlint/cli": "^19.7.1",
+		"@commitlint/config-conventional": "^19.7.1",
+		"@types/node": "^20.14.8",
+		"commitizen": "^4.3.1",
+		"fixpack": "^4.0.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.4.3",
+		"release-it": "^18.1.2",
+		"typescript": "^5.7.3",
+		"xo": "0.60.0"
+	},
+	"keywords": []
+}
